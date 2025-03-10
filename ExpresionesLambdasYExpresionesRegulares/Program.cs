@@ -15,8 +15,13 @@ namespace ExpresionesLambdasYExpresionesRegulares
             Personas persona2 = new Personas();
             persona2.Nombre = "juan";
             persona2.Edad = 38;
+            
+            CompararEdad compararEdad = (edad1,edad2) => edad1 == edad2;
+            Console.WriteLine(compararEdad(persona1.Edad,persona2.Edad));
+            CompararNombres compararNombre = (nombre1,nombre2) => nombre1 == nombre2;
+            Console.WriteLine(compararNombre(persona1.Nombre,persona2.Nombre));
 
-            OperacionesMatematicasUnNumero cuadrado = new OperacionesMatematicasUnNumero(numero => numero * numero);
+            OperacionesMatematicasUnNumero cuadrado = numero => numero * numero;
             OperacionesMatematicasDosNumeros suma = new OperacionesMatematicasDosNumeros((numero1, numero2) => numero1 + numero2);
             Console.WriteLine(cuadrado(9));
             Console.WriteLine(suma(15, 35));
@@ -29,7 +34,8 @@ namespace ExpresionesLambdasYExpresionesRegulares
             numerosImpares.ForEach(numero => { Console.Write("El número impar es: ") ; Console.WriteLine(numero); });
 
         }
-
+        delegate bool CompararEdad(int edad1,int edad2);
+        delegate bool CompararNombres(string nombre1,string nombre2);
         delegate int OperacionesMatematicasUnNumero(int numero);
         delegate int OperacionesMatematicasDosNumeros(int numero1, int numero2);
         ////static int Cuadrado(int numero)
