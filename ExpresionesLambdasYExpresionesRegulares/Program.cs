@@ -15,15 +15,18 @@ namespace ExpresionesLambdasYExpresionesRegulares
             persona2.Nombre = "juan";
             persona2.Edad = 38;
 
-            OperacionesMatematicas operacion = new OperacionesMatematicas(Cuadrado);
-            Console.WriteLine(operacion(9));
+            OperacionesMatematicasUnNumero cuadrado = new OperacionesMatematicasUnNumero(numero => numero * numero);
+            OperacionesMatematicasDosNumeros suma = new OperacionesMatematicasDosNumeros((numero1,numero2) => numero1 + numero2);
+            Console.WriteLine(cuadrado(9));
+            Console.WriteLine(suma(15,35));
         }
 
-        delegate int OperacionesMatematicas(int numero);
-        static int Cuadrado(int numero)
-        {
-            return numero * numero;
-        }
+        delegate int OperacionesMatematicasUnNumero(int numero);
+        delegate int OperacionesMatematicasDosNumeros(int numero1, int numero2);
+        //static int Cuadrado(int numero)
+        //{
+        //    return numero * numero;
+        //}
     }
 
     class Personas
