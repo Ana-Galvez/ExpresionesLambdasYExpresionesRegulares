@@ -10,9 +10,9 @@ namespace ExpresionesLambdasYExpresionesRegulares
         static void Main(string[] args)
         {
             //Expresiones regulares
-            string frase = "Mi nombre es Ana y mi número de teléfono es (+54)9 4123-1235 y mi código postal es 5263";
+            string frase = "Mi nombre es Ana y mi número de teléfono es (+54)9 4123-1235 y mi código postal es 5263 y mi otro número es (+23) 4414-5555";
             //Si hay A mayúscula y minúscula
-            string patron = "[Aa]";//@"\d", @\d{3}, [^mnM], [A-Z],[a-z],[0-9];
+            string patron = @"\d{2}";//@"\d", @\d{3}, [^mnM], [A-Z],[a-z],[0-9],1|t;
             Regex expReg = new Regex(patron);
             MatchCollection matchCollection = expReg.Matches(frase);
             if (matchCollection.Count > 0) Console.WriteLine($"Se ha encontrado {matchCollection.Count} coincidencia/s");
