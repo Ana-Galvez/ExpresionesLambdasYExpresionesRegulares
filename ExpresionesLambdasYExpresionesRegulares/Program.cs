@@ -11,8 +11,8 @@ namespace ExpresionesLambdasYExpresionesRegulares
         {
             //Expresiones regulares
             string frase = "Mi nombre es Ana y mi número de teléfono es (+54)9 4123-1235 y mi código postal es 5263";
-            //Si hay A mayúscula
-            string patron = "[Aa]";
+            //Si hay A mayúscula y minúscula
+            string patron = "[Aa]";//@"\d", @\d{3}, [^mnM], [A-Z],[a-z],[0-9];
             Regex expReg = new Regex(patron);
             MatchCollection matchCollection = expReg.Matches(frase);
             if (matchCollection.Count > 0) Console.WriteLine($"Se ha encontrado {matchCollection.Count} coincidencia/s");
